@@ -2,7 +2,7 @@ import React from 'react';
 
 type Props = {
   title: string;
-};
+}
 
 const Header: React.FC<Props> = ({ title }) => {
   return (
