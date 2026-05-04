@@ -8,7 +8,9 @@ import type { Task } from './components/TaskItem'
 import LoginForm from './components/LoginForm'
 import GreetingCard from './components/GreetingCard'
 import Counter from './components/Counter'
-
+import CharacterCounter from './components/CharacterCounter'
+import ShowHidePassword from './components/ShowHidePassword'
+import ThemeToggle from './components/ThemeToggle'
 function App() {
 
   const users = [
@@ -54,7 +56,9 @@ function App() {
         />
       ))}
       <Counter />
-      <Counter />
+      <CharacterCounter />
+      <ShowHidePassword />
+      <ThemeToggle />
     </div>
   )
 }

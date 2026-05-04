@@ -5,7 +5,7 @@
 // Every keystroke fires an event → handler reads the value →
 // calls the setter → React re-renders with the new count.
 
-import { useState } from "react";
+import React, { useState } from "react";
 
 const MAX_CHARS = 150;
 
@@ -20,6 +20,7 @@ export default function CharacterCounter() {
   const charsLeft: number = MAX_CHARS - charsUsed;
   const isOverLimit: boolean = charsUsed > MAX_CHARS;
   const isNearLimit: boolean = charsLeft <= 20 && !isOverLimit;
+  const isMinLength: boolean = charsUsed < 10;
 
   // ── event handler ──────────────────────────────────────
   // Called on EVERY keystroke (onChange fires for each character)
@@ -71,6 +72,13 @@ export default function CharacterCounter() {
               CONDITIONAL RENDERING from state
               Different messages appear at different thresholds
             */}
+            {
+              isMinLength && (
+                <span style={styles.hintWarn}>
+                  ⚠️ Character is fewer than 10
+                </span>
+              )
+            }
             {isOverLimit && (
               <span style={styles.hintDanger}>
                 ❌ {Math.abs(charsLeft)} characters over limit
